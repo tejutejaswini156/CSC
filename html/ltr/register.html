@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-textdirection="ltr" class="loading">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Register Page</title>
+    <script type="text/javascript"
+    src="jquery-ui-1.10.0/tests/jquery-1.9.0.js"></script>
+<script src="jquery-ui-1.10.0/ui/jquery-ui.js"></script>
+    <!-- BEGIN VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css/bootstrap.css">
+    <!-- font icons-->
+    <link rel="stylesheet" type="text/css" href="../../app-assets/fonts/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/extensions/pace.css">
+      <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN ROBUST CSS-->
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css/app.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css/colors.css">
+    <!-- END ROBUST CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css/core/menu/menu-types/vertical-overlay-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css/pages/login-register.css">
+    <!-- END Page Level CSS-->
+    <!-- BEGIN Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+    <!-- END Custom CSS-->
+  </head>
+  <body data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column  blank-page blank-page">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="app-content content container-fluid">
+      <div class="content-wrapper">
+        <div class="content-header row">
+         
+        </div>
+        <div class="content-body" style="padding-top:+20px; margin-top:+20px"><section class="flexbox-container">
+    <div class="col-md-4 offset-md-4 col-xs-10 offset-xs-1 box-shadow-2 p-0">
+		<div class="card border-grey border-lighten-3 px-2  m-0">
+			<div class="card-header no-border">
+				<div class="card-title text-xs-center">
+			          <div class="p-1">   <center> <img src="../../app-assets/images/logo/cms.png" width="80px" height="80px"></center> <h1 class="teal">VTA</h1></div>   
+				</div>
+				<h6 class="card-subtitle line-on-side  text-xs-center font-small-10 blue "><span>grievance management system</span></h6>
+			</div>
+			<div class="card-body collapse in">	
+				<div class="card-block">
+					<form class="form-horizontal form-simple" action="authenticate.php" method="POST"  name="register_form" onsubmit="return checkForm(this);">
+                        <fieldset class="form-group position-relative has-icon-left mb-1">
+                            <input type="text" class="form-control form-control-lg input-lg" id="username" placeholder="User Name" name="uname" required>
+                            <div class="form-control-position">
+                                <i class="icon-head info"></i>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset class="form-group position-relative has-icon-left">
+                            <input type="password" class="form-control form-control-lg input-lg" id="userpassword" placeholder="Enter Password" name="upwd" required>
+                            <div class="form-control-position">
+                                <i class="icon-key3 warning"></i>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group position-relative has-icon-left" style="margin-top:-20px;">
+                            <input type="password" class="form-control form-control-lg input-lg" id="confirmpassword" placeholder="confirm Password" name="cupwd" required>
+                            <div class="form-control-position">
+                                <i class="icon-key3 red"></i>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group position-relative has-icon-left mb-1" style="margin-top:-20px;">
+                            
+
+                            <select  name="type" class="form-control form-control-lg select-lg" required id="type1">
+                                 <option value="" selected disabled hidden>Select Type of the Complainer</option>
+                                 <option value="student">student</option>
+                                 <option value="parent">parent</option>
+                                 <option value="staff">staff</option>
+                                <option value="non-teahcingstaff">non-teaching staff</option>
+                                <option value="grievancecellmember">grievance cell member</option>
+                                <option value="admin">admin</option>
+                              </select>
+                            <div class="form-control-position">
+                                <i class="icon-pencil2 purple"></i>
+                            </div>
+                         
+                             
+                        </fieldset>
+                        <script type="text/javascript">
+                         $(type1).on(change,function(){
+                     if( $(this).val()==="grievancecellmember"){
+                    $(platform).show();
+                       }
+                      else{
+                           $(platform).hide();
+                           }
+                  });  </script>
+
+                        
+                        <fieldset class="form-group position-relative has-icon-left"  style="display:none;" id="platform">
+                            <input type="text" class="form-control form-control-lg input-lg" id="w_platform" placeholder="work platform" name="w_platform" required>
+                            <div class="form-control-position">
+                                <i class="icon-key3 red"></i>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group position-relative has-icon-left mb-1">
+                            <input type="tel" name="number" class="form-control form-control-lg input-lg" id="userphoneno" placeholder="Phone Number" required pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number">
+                            <div class="form-control-position">
+                                <i class="icon-phone3 pink"></i>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group position-relative has-icon-left mb-1">
+                            <input type="email" name="email" class="form-control form-control-lg input-lg" id="useremail" placeholder="Your Email Address" required>
+                            <div class="form-control-position">
+                                <i class="icon-mail6 teal"></i>
+                            </div>
+                        </fieldset>
+                 <!--     <fieldset class="form-group position-relative has-icon-left mb-1">
+                            <input type="file" name="image" class="form-control form-control-lg input-lg"   required>
+                            <div class="form-control-position">
+                                <i class="icon-android-image orange"></i>
+                            </div>
+                        </fieldset> -->
+                        
+                        
+                        <button type="submit" name="register" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Register</button>
+                    </form>
+
+				</div>
+				<p class="text-xs-center">Already have an account ? <a href="index.html" class="card-link">Login</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+        </div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <!-- BEGIN VENDOR JS-->
+    <script src="../../app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
+    <script src="../../app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
+    <script src="../../app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="../../app-assets/vendors/js/ui/unison.min.js" type="text/javascript"></script>
+    <script src="../../app-assets/vendors/js/ui/blockUI.min.js" type="text/javascript"></script>
+    <script src="../../app-assets/vendors/js/ui/jquery.matchHeight-min.js" type="text/javascript"></script>
+    <script src="../../app-assets/vendors/js/ui/screenfull.min.js" type="text/javascript"></script>
+    <script src="../../app-assets/vendors/js/extensions/pace.min.js" type="text/javascript"></script>
+      <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN ROBUST JS-->
+    <script src="../../app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="../../app-assets/js/core/app.js" type="text/javascript"></script>
+      <script src="register.js"></script>
+    <!-- END ROBUST JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+  </body>
+</html>
